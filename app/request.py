@@ -87,6 +87,5 @@ def search_movie(movie_name):
             search_movie_list = search_movie_response['results']
             search_movie_results = process_results(search_movie_list)
 
-
     return search_movie_results
 
