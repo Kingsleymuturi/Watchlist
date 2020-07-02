@@ -81,7 +81,7 @@ def search_movie(movie_name):
         search_movie_data = url.read()
         search_movie_response = json.loads(search_movie_data)
 
-        search_movie_results = None
+        search_movie_results = None 
 
         if search_movie_response['results']:
             search_movie_list = search_movie_response['results']
