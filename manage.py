@@ -6,4 +6,4 @@ app = create_app('development')
 
 
 
-serve(app)
+serve(app, host='0.0.0.0', port=8080)
