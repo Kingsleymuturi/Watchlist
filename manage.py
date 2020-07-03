@@ -2,6 +2,7 @@ from app import create_app
 from app.models import Movie, Review
 from waitress import serve
 
+
 # Creating app instance
 app = create_app('development')
 
