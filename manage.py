@@ -1,17 +1,24 @@
 from app import create_app
-from app.models import Movie, Review
-from waitress import serve
-
+from flask_script import Manager,Shell,Server
+from app import create_app,db
+from app.models import User,Role
 
 # Creating app instance
 app = create_app('development')
+manager = Manager(app)
 
-@app.shell_context_processor
+manager.add_command('server',Server)
+
+@manager.command
+def test():
+    """Run the unit tests."""
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
+
+@manager.shell
 def make_shell_context():
-    """Makes the shell context, allowing for specific variables, and classes
-       to be known by the interactive Python session on startup."""
-    return {'Movie': Movie, 'Review': Review}
-
+    return dict(app = app,db = db,User = User,Role = Role )
 
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=800)
+    manager.run()
