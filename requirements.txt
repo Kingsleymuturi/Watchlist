@@ -24,7 +24,7 @@ requests==2.22.0
 six==1.15.0
 toml==0.10.1
 typed-ast==1.4.1
-urllib3==1.25.3
+urllib3==1.25.8
 virtualenv==20.0.25
 Werkzeug==0.15.6
 wrapt==1.12.1
